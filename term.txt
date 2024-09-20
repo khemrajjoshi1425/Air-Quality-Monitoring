@@ -1,0 +1,19 @@
+docker run -d -p 9092:9092 --name broker apache/kafka:latest
+
+docker run -d --name influxdb -p 8086:8086 influxdb:2.2.0
+
+telegraf --config telegraf.conf 
+
+docker run -d --name grafana -p 3000:3000 grafana/grafana
+
+ sudo /bin/systemctl daemon-reload
+ sudo /bin/systemctl enable grafana-server
+ sudo /bin/systemctl start grafana-server
+
+https://grafana.com/grafana/dashboards/12378-netatmo-weather-station/
+
+
+Dark: http://localhost:3000/goto/dzsgnu6Sg?orgId=1
+Light: http://localhost:3000/goto/Eisi7XeIR?orgId=1
+
+chmod +x run.sh

@@ -1,0 +1,21 @@
+services:
+  kafka:
+    image: apache/kafka:latest
+    restart: always
+    ports:
+      - 9092:9092
+    volumes:
+      - kafka:/var/lib/kafka 
+  influxdb:
+    image: influxdb:2.2.0
+    restart: always
+    depends_on:
+      - kafka
+    ports:
+      - 8086:8086
+    volumes:
+      - influxDb:/var/lib/influxdb2 
+
+volumes:
+  influxDb: {}
+  kafka: {}
